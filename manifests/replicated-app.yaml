@@ -1,0 +1,17 @@
+apiVersion: kots.io/v1beta1
+kind: Application
+metadata:
+  name: ethan-kots
+spec:
+  title: Ethan Kots
+  icon: https://kots.io/images/kots.svg
+  allowRollback: true
+  kustomizeVersion: 2.0.3
+  statusInformers:
+    - service/nginx
+    - deployment/nginx
+  ports:
+    - serviceName: nginx
+      servicePort: 80
+      localPort: 80
+      applicationUrl: repl{{ ConfigOption "hostname"}}

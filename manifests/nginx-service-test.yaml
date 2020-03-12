@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-service-test
+spec:
+  type: ExternalName
+  externalName: nginx-test.test.svc.cluster.local
+  ports:
+    - port: 80

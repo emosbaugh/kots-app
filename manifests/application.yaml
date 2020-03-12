@@ -1,0 +1,25 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: ethan-kots
+  labels:
+    app.kubernetes.io/name: ethan-kots
+    app.kubernetes.io/version: "0.1"
+spec:
+  selector:
+    matchLabels:
+     app.kubernetes.io/name: ethan-kots
+  componentKinds:
+    - group: core
+      kind: Service
+    - group: extensions
+      kind: Ingress
+    - group: apps
+      kind: Deployment
+  descriptor:
+    version: "0.1"
+    description: "ethan-kots"
+    type: "ethan-kots"
+    links:
+      - description: Open Ethan Kots
+        url: "http://ethan-kots"
